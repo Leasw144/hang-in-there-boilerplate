@@ -2,6 +2,16 @@
 var posterImg = document.querySelector('.poster-img');
 var posterQuote = document.querySelector('.poster-quote');
 var posterTitle = document.querySelector('.poster-title');
+
+
+var makeOwnPosterBtn = document.querySelector('.show-form')
+var showSavedBtn = document.querySelector('.show-saved')
+var nvmBtn = document.querySelector('.show-main')
+var backToMainBtn = document.querySelector('.back-to-main')
+
+var formSection = document.querySelector('.poster-form')
+var mainSection = document.querySelector('.main-poster')
+var savedSection = document.querySelector('.saved-posters')
 // we've provided you with some data to work with 👇
 var images = [
   "./assets/bees.jpg",
@@ -105,8 +115,22 @@ var currentPoster;
 
 // event listeners go here 👇
 window.addEventListener('onload', randomizePoster());
+makeOwnPosterBtn.addEventListener('click', toggleForm)
+nvmBtn.addEventListener('click', toggleForm)
+showSavedBtn.addEventListener('click', toggleSaved)
+backToMainBtn.addEventListener('click', toggleSaved)
 
 // functions and event handlers go here 👇
+
+function toggleSaved() {
+  mainSection.classList.toggle('hidden')
+  savedSection.classList.toggle('hidden')
+}
+
+function toggleForm() {
+  formSection.classList.toggle('hidden')
+  mainSection.classList.toggle('hidden')
+}
 
 function randomizePoster() {
   randomizeImg();
